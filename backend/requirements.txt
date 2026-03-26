@@ -1,0 +1,19 @@
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+sqlalchemy==2.0.28
+alembic==1.13.1
+# PostgreSQL (no usable binary wheel on some Python 3.14 builds — use SQLite locally or install manually)
+psycopg2-binary==2.9.9; python_version < "3.14"
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+python-dotenv==1.0.1
+aiofiles==23.2.1
+Pillow>=10.2.0
+pydantic[email]>=2.6.4,<3
+pydantic-settings>=2.2.0
+opencv-python-headless==4.9.0.80
+ultralytics>=8.1.0
+onnxruntime>=1.17.0
+# DeepFace needs TensorFlow (not on Python 3.14). Face pipeline uses ResNet18 fallback when DeepFace is missing.
+deepface>=0.0.90; python_version < "3.14"

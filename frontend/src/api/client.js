@@ -1,5 +1,4 @@
-git add .
-git commit -m "Removed node_modules"/**
+/**
  * client.js - Axios instance pre-configured with the API base URL
  * and a request interceptor that attaches the JWT Authorization header.
  */

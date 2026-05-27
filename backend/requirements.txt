@@ -5,6 +5,7 @@ alembic==1.13.1
 # PostgreSQL (no usable binary wheel on some Python 3.14 builds — use SQLite locally or install manually)
 psycopg2-binary==2.9.9; python_version < "3.14"
 python-jose[cryptography]==3.3.0
+bcrypt==3.2.2
 passlib[bcrypt]==1.7.4
 python-multipart==0.0.9
 python-dotenv==1.0.1

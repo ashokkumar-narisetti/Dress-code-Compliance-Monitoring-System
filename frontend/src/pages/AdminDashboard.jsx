@@ -56,7 +56,8 @@ function ImageModal({ src, onClose }) {
 /* ── Clickable Thumb ─────────────────────────────────────────────────────── */
 function EvidenceThumb({ path, onOpen }) {
     if (!path) return null
-    const url = path.startsWith('/') ? path : `/${path}`
+    const baseUrl = client.defaults.baseURL.replace('/api/v1', '')
+    const url = path.startsWith('http') ? path : `${baseUrl}${path.startsWith('/') ? '' : '/'}${path}`
     return (
         <div style={{ position: 'relative', display: 'inline-block', cursor: 'pointer' }} onClick={() => onOpen(url)}>
             <img className="evidence-thumb" src={url} alt="proof"

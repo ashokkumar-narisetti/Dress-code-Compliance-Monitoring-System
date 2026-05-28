@@ -169,6 +169,10 @@ def get_yolo():
 
 
 def _predict(bgr: np.ndarray):
+    global _yolo
+    if _yolo is None:
+        from database import settings
+        load_dresscode_model(settings.MODEL_PATH)
     if _yolo is None or bgr is None or bgr.size == 0:
         return None
     return _yolo(bgr, verbose=False)[0]

@@ -11,6 +11,10 @@ Responsibilities:
 """
 
 import os
+# Prevent PyTorch from spawning too many threads on a 0.1 CPU container
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
 import logging
 from contextlib import asynccontextmanager
 
@@ -60,18 +64,6 @@ async def lifespan(app: FastAPI):
             "  ╚══════════════════════════════════════════════════════════╝\n"
             f"  Error: {e}\n"
         )
-
-    import asyncio
-    
-    # Load AI model in a background thread to prevent blocking Uvicorn startup
-    async def _load_ai_bg():
-        try:
-            await asyncio.to_thread(ai_service.load_model, settings.MODEL_PATH)
-            logger.info("AI service initialized in background.")
-        except Exception as e:
-            logger.error(f"Failed to load AI model: {e}")
-            
-    asyncio.create_task(_load_ai_bg())
 
     yield  # Application is running
 

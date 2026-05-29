@@ -50,7 +50,8 @@ function EvidenceThumb({ path, onOpen, size = 80 }) {
     if (!path) return null
     // Clean up slashes just in case
     const cleanPath = path.replace(/\\/g, '/').replace(/^\/+/, '')
-    const url = cleanPath.startsWith('http') ? cleanPath : `https://dress-code-api.onrender.com/${cleanPath}`
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+    const url = cleanPath.startsWith('http') ? cleanPath : `${API_BASE_URL}/${cleanPath}`
     return (
         <div
             style={{ position: 'relative', display: 'inline-block', cursor: 'pointer', borderRadius: 8, overflow: 'hidden' }}

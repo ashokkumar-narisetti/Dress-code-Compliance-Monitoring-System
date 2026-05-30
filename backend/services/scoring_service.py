@@ -13,7 +13,7 @@ import models
 
 DEFAULT_POLICY_POINTS = {
     "Shirt not tucked": 5.0,
-    "No shoes detected": 5.0,
+    " shoes detected": 5.0,
     "Dress code non-compliance detected": 5.0,
     "dress_code_violation": 5.0,
 }

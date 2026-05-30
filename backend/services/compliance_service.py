@@ -68,7 +68,7 @@ def evaluate_dress_code(
     violations: List[str] = []
 
     if shoes_present is False:
-        violations.append("No shoes detected")
+        violations.append(" shoes detected")
 
     if normalized == "male" and shirt_tucked is False:
         violations.append("Shirt not tucked")

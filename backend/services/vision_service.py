@@ -43,11 +43,11 @@ def _dresscode_label_rules(
     if key == "girl_valid":
         return True, [], None, True
     if key == "boy_no_shoes":
-        return False, ["No shoes detected"], None, False
+        return False, [" shoes detected"], None, False
     if key == "boy_no_inshirt":
         return False, ["Shirt not tucked"], False, None
     if key == "boy_full_violation":
-        return False, ["Shirt not tucked", "No shoes detected"], False, False
+        return False, ["Shirt not tucked", " shoes detected"], False, False
     if key == "girl_violation":
         return False, ["Dress code violation"], None, False
     return None
